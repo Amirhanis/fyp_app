@@ -1,0 +1,36 @@
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+// Custom
+.imagetop{
+    transform: scale(0.8);
+    top: -50px;
+}
+
+.custom-header, .button, .login{
+    background-color: rgb(137, 137, 139) !important;
+}
+
+#search-form{
+    background-color: #1F2833;
+}
+
+em{
+    color: rgb(21, 140, 225);
+}
+
+.imagetop{
+    transform: scale(0.8);
+    top: -50px;
+}
+
+.navbar-brand img {
+    width: 30px;
+    height: 30px;
+}

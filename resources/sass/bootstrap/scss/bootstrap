@@ -1,0 +1,3 @@
+.header-area {
+    background-color: #6c757d; // This is Bootstrap's grey color. You can use any color code you prefer.
+}
