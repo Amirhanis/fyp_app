@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\State;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -26,7 +27,8 @@ class HomeController extends Controller
     {
 
         $states = State::select()->orderBy('id','asc')->get();
+        $userRole = Auth::user()->role;
 
-        return view('home', compact('states'));
+        return view('home', compact('states','userRole'));
     }
 }

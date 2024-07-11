@@ -113,6 +113,22 @@
                     </fieldset>
               </div>
            
+            <div class="col-md-12">
+                <fieldset>
+                    <label for="role" class="form-label">Role</label>
+                    <select id="role" class="form-control @error('role') is-invalid @enderror" name="role" required>
+                        <option value="customer" {{ old('role') == 'customer' ? 'selected' : '' }}>Customer</option>
+                        <option value="owner" {{ old('role') == 'owner' ? 'selected' : '' }}>Owner</option>
+                    </select>
+
+                    @error('role')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </fieldset>
+            </div>
+
               <div class="col-md-12">
                 <fieldset>
                     <label for="password" class="form-label">Your Password</label>

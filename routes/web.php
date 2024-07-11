@@ -23,6 +23,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth:web');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 
+Route::get('traveling/report', [App\Http\Controllers\Traveling\TravelingController::class, 'report'])->name('traveling.report');
+
 Route::get('traveling/about/{id}', [App\Http\Controllers\Traveling\TravelingController::class, 'about'])->name('traveling.about');
 
 //Booking

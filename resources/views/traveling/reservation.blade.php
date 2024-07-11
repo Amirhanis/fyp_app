@@ -14,7 +14,7 @@
             @csrf
             <div class="row">
               <div class="col-lg-12">
-                <h4>Make Your <em>Reservation</em> Through This <em>Form</em></h4>
+                <h4>Fill in this <em>Form</em> to make <em>Reservation</em></h4>
               </div>
               <div class="col-lg-12">
                   <fieldset>
@@ -35,13 +35,13 @@
               <div class="col-lg-6">
                   <fieldset>
                       <label for="Name" class="form-label">Your Name</label>
-                      <input type="text" name="name" class="Name" placeholder="Ex. John Smithee" autocomplete="on" required>
+                      <input type="text" name="name" class="Name" placeholder="Name" autocomplete="on" required>
                   </fieldset>
               </div>
               <div class="col-lg-6">
                 <fieldset>
                     <label for="Number" class="form-label">Your Phone Number</label>
-                    <input type="text" name="phone_no" class="Number" placeholder="Ex. +xxx xxx xxx" autocomplete="on" required>
+                    <input type="text" name="phone_no" class="Number" placeholder="No. phone" autocomplete="on" required>
                 </fieldset>
               </div>
               <div class="col-lg-6">
@@ -58,15 +58,21 @@
               </div>
               <div class="col-lg-6">
                 <fieldset>
-                    <label for="Number" class="form-label">Check In Date</label>
-                    <input type="date" name="check_in_date" class="date" required>
+                  <label for="Number" class="form-label">Check In Date</label>
+                  <input type="date" name="check_in_date" class="date" required>
+                  @if ($errors->has('check_in_date'))
+                    <span class="text-danger">{{ $errors->first('check_in_date') }}</span>
+                  @endif
                 </fieldset>
               </div>
               
               <div class="col-lg-12">                        
                   <fieldset>
                     @if(isset(Auth::user()->id))
-                      <button type="submit" class="button">Continue Book</button>
+                      <div class="button-group">
+                        <button  class="button"><a href="{{route('home')}}">Cancel</a></button>
+                        <button type="submit" class="button">Continue Book</button>
+                      </div>
                     @else
                       <p class="alert alert-success">You need to login to make a reservation</p>
                     @endif

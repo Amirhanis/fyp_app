@@ -24,7 +24,7 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/app.scss'])
 </head>
 <body>
     <div id="app">
@@ -36,14 +36,23 @@
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="{{ url('/') }}" class="logo">
-                        <img class="imagetop" src="{{ asset('assets/images/homestay.png') }}" alt="" style="width: 100px; top: 0px">
+                        <img class="imagetop" src="{{ asset('assets/images/homestay.png') }}" alt="" style="width: 90px; top: 0px">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li><a href="{{ route('home') }}" class="active">Home</a></li>
                         {{-- <li><a href="about.html">About</a></li> --}}
-                        <li><a href="{{route('traveling.deals')}}">Deals</a></li>
+                        
+                        @if(Auth::check())
+                            @if(Auth::user()->role == 'customer')
+                                <li><a href="{{route('traveling.deals')}}">Search</a></li>
+                            @else
+                                <li><a href="{{route('traveling.report')}}">Report</a></li>
+                            @endif
+                        @endif
+
+                        <li><a href="{{route('user.bookings')}}">Reservations</a></li>
 
                         @guest
                             @if (Route::has('login'))
@@ -64,7 +73,7 @@
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
                                     <a class="dropdown-item text-black" href="{{ route('user.bookings') }}">
-                                        My Bookings
+                                        Reservations
                                     </a>
                                     
                                     <a class="dropdown-item text-black" href="{{ route('logout') }}"
@@ -78,6 +87,11 @@
                                     </form>
                                 </div>
                             </li>
+                            <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                </a></li>
+
                         @endguest
                     </ul>   
                     <a class='menu-trigger'>
@@ -95,7 +109,7 @@
         </main>
     </>
 
-    <footer>
+    <!--<footer>
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
@@ -104,7 +118,7 @@
         </div>
       </div>
     </div>
-  </footer>
+  </footer>-->
 
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
   <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>

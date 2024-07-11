@@ -2,25 +2,14 @@
 
 @section('content')
 
-<div class="page-heading">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <h4>My Bookings</h4>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
 
   <div class="amazing-deals">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 offset-lg-3">
           <div class="section-heading text-center">
-            <h2>Below is all the booking lists</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+            <h2>Reservation Lists</h2>
+            <p>Below is all the booking lists</p>
           </div>
         </div>
         

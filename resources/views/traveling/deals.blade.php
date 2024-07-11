@@ -6,70 +6,66 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h4>Discover Our Weekly Offers</h4>
-          <h2>Amazing Prices &amp; More</h2>
+          <h3>Discover Our Homestay Offers</h3>
+          
+          <div class="search-form">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <form id="search-form" name="gs" method="POST" role="search" action="{{ route('traveling.deals.search') }}">
+                  @csrf
+                  <div class="row">
+                    <div class="col-lg-2">
+                      <h4>Search Homestay By:</h4>
+                    </div>
+                    <div class="col-lg-4">
+                        <fieldset>
+                            <select name="country_id" class="form-select" aria-label="Default select example" id="chooseLocation" onChange="this.form.click()">
+                                <option selected>States</option>
+                                @foreach ($states as $state)
+                                  <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                @endforeach
+                                
+                            </select>
+                        </fieldset>
+                    </div>
+                    <div class="col-lg-4">
+                        <fieldset>
+                            <select name="price" class="form-select" aria-label="Default select example" id="choosePrice" onChange="this.form.click()">
+                                <option selected>Price</option>
+                                <option value="100">RM100 or less</option>
+                                <option value="250">RM250 or less</option>
+                                <option value="500">RM500 or less</option>
+                                <option value="1000">RM1,000 or less</option>
+                                <option value="2500+">RM2,500 or less</option>
+                            </select>
+                        </fieldset>
+                    </div>
+                    <div class="col-lg-2">                        
+                        <fieldset>
+                            <button type="submit" class="border-button">Search Results</button>
+                        </fieldset>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="search-form">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <form id="search-form" name="gs" method="POST" role="search" action="{{ route('traveling.deals.search') }}">
-            @csrf
-            <div class="row">
-              <div class="col-lg-2">
-                <h4>Sort Deals By:</h4>
-              </div>
-              <div class="col-lg-4">
-                  <fieldset>
-                      <select name="country_id" class="form-select" aria-label="Default select example" id="chooseLocation" onChange="this.form.click()">
-                          <option selected>Destinations</option>
-                          @foreach ($states as $state)
-                            <option value="{{ $state->id }}">{{ $state->name }}</option>
-                          @endforeach
-                          <option value="Thailand">Thailand</option>
-                          <option value="Australia">Australia</option>
-                          <option value="India">India</option>
-                          <option value="Indonesia">Indonesia</option>
-                          <option value="Malaysia">Malaysia</option>
-                          <option value="Singapore">Singapore</option>
-                      </select>
-                  </fieldset>
-              </div>
-              <div class="col-lg-4">
-                  <fieldset>
-                      <select name="price" class="form-select" aria-label="Default select example" id="choosePrice" onChange="this.form.click()">
-                          <option selected>Price</option>
-                          <option value="100">$100 </option>
-                          <option value="250">$250 </option>
-                          <option value="500">$500 </option>
-                          <option value="1000">$1,000 - $2,500</option>
-                          <option value="2500+">$2,500+</option>
-                      </select>
-                  </fieldset>
-              </div>
-              <div class="col-lg-2">                        
-                  <fieldset>
-                      <button type="submit" class="border-button">Search Results</button>
-                  </fieldset>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
+  
 
   <div class="amazing-deals">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 offset-lg-3">
           <div class="section-heading text-center">
-            <h2>Best Weekly Offers In Each City</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+            <h2>Best Homestay Offers In Each State</h2>
+            <p>Below are the lists for all lowest homestay price for every states</p>
           </div>
         </div>
         @foreach ($areas as $area)
@@ -85,7 +81,7 @@
               </div>
               <div class="col-lg-6 align-self-center">
                 <div class="content">
-                  <span class="info">*Limited Offer Today</span>
+                  <span class="info">*RM{{$area->price}} for each person</span>
                   <h4>{{$area->name}}</h4>
                   <div class="row">
                     <div class="col-6">
@@ -97,7 +93,7 @@
                       <span class="list">Daily Places</span>
                     </div>
                   </div>
-                  <p>Lorem ipsum dolor sit amet dire consectetur adipiscing elit.</p>
+                  <p>All homestay facilities are included</p>
                   <div class="main-button">
                     <a class="button" href="{{route('traveling.reservation', $area->id) }}">Make a Reservation</a>
                   </div>

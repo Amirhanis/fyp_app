@@ -21,7 +21,7 @@
   </div>
   <!-- ***** Main Banner Area End ***** -->
   
-  <div class="cities-town">
+  <!--<div class="cities-town">
     <div class="container">
       <div class="row">
         <div class="slider-content">
@@ -88,15 +88,15 @@
         </div>
       </div>
     </div>
-  </div>
+  </div>-->
 
   <div class="weekly-offers">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 offset-lg-3">
           <div class="section-heading text-center">
-            <h2>Best Weekly Offers In Each City</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+            <h2>Best Weekly Offers In Each State</h2>
+            <p></p>
           </div>
         </div>
       </div>
@@ -116,7 +116,7 @@
                     <ul>
                         <li>Deal Includes:</li>
                         <li><i class="fa fa-taxi"></i> {{$area->num_days}} Days Trip > Hotel Included</li>
-                        <li><i class="fa fa-plane"></i> Airplane Bill Included</li>
+                        <li><i class="fa fa-plane"></i> Facilites Included</li>
                         <li><i class="fa fa-building"></i> Daily Places Visit</li>
                     </ul>
                     <div class="main-button">
@@ -140,13 +140,13 @@
       <div class="row">
         <div class="col-lg-6 align-self-center">
           <div class="left-image">
-            <img src="{{ asset('assets/images/about-left-image.jpg') }}" alt="">
+            <img src="{{ asset('assets/images/about-left-image.jfif') }}" alt="">
           </div>
         </div>
         <div class="col-lg-6">
           <div class="section-heading">
             <h2>Discover More About Our Country</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+            <p>Malaysia is country that has total 13 states including Sabah and Sarawak</p>
           </div>
           <div class="row">
            
@@ -155,7 +155,7 @@
                 <div class="row">
                   <div class="col-lg-6">
                     <h4>{{ $areasCount }}+</h4>
-                    <span>Amazing Places</span>
+                    <span>Homestay Places</span>
                   </div>
                   {{-- <div class="col-lg-6">
                     <h4>240.580+</h4>
@@ -165,7 +165,7 @@
               </div>
             </div>
           </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+          <p>States in Malaysia: Pahang, Johor, Terengganu, Melaka, Negeri Sembilan, Selangor, Perlis, Pulau Pinang, Kelantan, Kedah, Perak, Sabah and Sarawak.</p>
           
         </div>
       </div>

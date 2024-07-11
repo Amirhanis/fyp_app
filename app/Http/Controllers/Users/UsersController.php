@@ -10,10 +10,14 @@ class UsersController extends Controller
 {
     //
 
-    public function bookings() {
-        
-        $bookings = Reservation::where('user_id', Auth::user()->id)
-        ->orderBy('id', 'desc')->get();
+    public function bookings()
+    {
+        if (Auth::user()->role == 'owner') {
+            $bookings = Reservation::orderBy('id', 'desc')->get();
+        } else {
+            $bookings = Reservation::where('user_id', Auth::user()->id)
+                ->orderBy('id', 'desc')->get();
+        }
 
         return view('users.bookings', compact('bookings'));
     }

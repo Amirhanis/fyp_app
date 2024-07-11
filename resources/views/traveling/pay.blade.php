@@ -16,7 +16,7 @@
       </div>
     </div>
   </div>
-    <div class="container">  
+    <div class="paymentcontainer">  
                     <!-- Replace "test" with your own sandbox Business account app client ID -->
                     <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script>
                     <!-- Set up a container element for the button -->
@@ -44,5 +44,5 @@
                     </script>
                   
                 </div>
-            </div>
+            
 @endsection

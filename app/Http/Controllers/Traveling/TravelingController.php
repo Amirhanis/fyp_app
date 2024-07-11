@@ -67,11 +67,9 @@ class TravelingController extends Controller
             return Redirect::route('traveling.pay');
         }
 
-    } else {
-        echo "Please choose a date greater than today's date";
+    } else if($request->check_in_date < date("Y-m-d")){
+        return view('traveling.reservation', compact('area'))->withErrors(['check_in_date' => 'Please choose a date greater than today\'s date']);
     }
-
-        //return view('traveling.reservation', compact('area'));
     }
 
     public function payWithPaypal() {
@@ -107,6 +105,22 @@ class TravelingController extends Controller
          $states = State::all();
          
         return view('traveling.searchdeals', compact('searches', 'states'));
+
+    }
+
+    public function report() {
+
+        $reservationsCount = Reservation::select()->count();
+        $reservationOne = Reservation::select()->where('destination', 'Homestay Kinabatangan, Pekan')->count();
+        $reservationTwo = Reservation::select()->where('destination', 'Raudhah Homestay, Pulai')->count();
+        $reservationThree = Reservation::select()->where('destination', 'Homestay Primabayu, Kuantan')->count();
+        $reservationFour = Reservation::select()->where('destination', 'Adam Homestay, Skudai')->count();
+        $reservationFive = Reservation::select()->where('destination', 'Selesa Homestay, Sungai Besar')->count();
+        $reservationSix = Reservation::select()->where('destination', 'Zamzam Homestay')->count();
+        //$statesCount = State::select()->count();
+        $areasCount = Area::select()->count();
+
+        return view('traveling.report', compact( 'reservationsCount','reservationOne','reservationTwo','reservationThree','reservationFour','reservationFive','reservationSix', 'areasCount'));
 
     }
 }
