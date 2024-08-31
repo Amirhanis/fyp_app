@@ -19,7 +19,7 @@
                     </div>
                 
                 @endif
-              <h5 class="card-title mb-4 d-inline">Bookings</h5>
+              <h5 class="card-title mb-4 d-inline">Reservations</h5>
             
               <table class="table">
                 <thead>

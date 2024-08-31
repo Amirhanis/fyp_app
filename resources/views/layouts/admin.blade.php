@@ -35,12 +35,12 @@
           </li>
           <!-- <li class="nav-item">
             <a class="nav-link" href="{{ route('all.states') }}" style="margin-left: 20px;">States</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="areas-admins/show-areas.html" style="margin-left: 20px;">Areas</a>
           </li> -->
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('all.bookings') }}" style="margin-left: 20px;">Bookings</a>
+            <a class="nav-link" href="{{route('all.states')}}" style="margin-left: 20px;">Add Homestay</a>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('all.bookings') }}" style="margin-left: 20px;">Reservation</a>
           </li>
         </ul>
         @endauth

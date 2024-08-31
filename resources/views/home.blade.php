@@ -95,10 +95,10 @@
                           <ul class="info">
                             <li><i class="fa fa-user"></i> {{ $state->population}}</li>
                             <li><i class="fa fa-globe"></i> {{ $state->territory}}41.290 km2</li>
-                            <li><i class="fa fa-home"></i> ${{ $state->avg_price}}</li>
+                            <li><i class="fa fa-home"></i> RM{{ $state->avg_price}}</li>
                           </ul>
                           <div class="text-button">
-                            <a href="about.html">Need Directions ? <i class="fa fa-arrow-right"></i></a>
+                            <a href="{{ route('traveling.about', $state->id) }}">Need Directions ? <i class="fa fa-arrow-right"></i></a>
                           </div>
                         </div>
                       </div>
@@ -138,9 +138,7 @@
               </form>
             </fieldset>
           </div>
-
           
-
           <div class="col-lg-12">
             <fieldset>
               <form action="{{route('user.bookings')}}" method="GET">
@@ -148,6 +146,13 @@
               </form>
             </fieldset>
           </div>
+
+          <div class="col-lg-12">
+            <fieldset>
+              <form action="{{route('traveling.inquiry')}}" method="GET">
+                <button type="submit" class="button">Manage Inquiry</button>
+              </form>
+            </fieldset>
         </div>
       </div>
     </div>

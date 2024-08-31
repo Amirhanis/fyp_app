@@ -5,7 +5,7 @@
  */
 
 import './bootstrap';
-import { createApp } from 'vue/dist/vue.esm-bundler';
+//import { createApp } from 'vue/dist/vue.esm-bundler';
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
@@ -13,14 +13,14 @@ import { createApp } from 'vue/dist/vue.esm-bundler';
  * to use in your application's views. An example is included for you.
  */
 
-const app = createApp({
-    components: {
-        ExampleComponent,
-    },
-});
+//const app = createApp({
+//    components: {
+//        ExampleComponent,
+//    },
+//});
 
-import ExampleComponent from './components/ExampleComponent.vue';
-app.component('example-component', ExampleComponent);
+//import ExampleComponent from './components/ExampleComponent.vue';
+//app.component('example-component', ExampleComponent);
 
 /**
  * The following block of code may be used to automatically register your
@@ -40,4 +40,4 @@ app.component('example-component', ExampleComponent);
  * scaffolding. Otherwise, you will need to add an element yourself.
  */
 
-app.mount('#app');
+//app.mount('#app');

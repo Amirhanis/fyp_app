@@ -1,22 +1,21 @@
 <?php
 
-namespace App\Models\Reservation;
+namespace App\Models\Inquiry;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Reservation extends Model
+class Inquiry extends Model
 {
     use HasFactory;
 
-    protected $table = "reservations";
+    protected $table = "inquiries";
 
     protected $fillable = [
         'name',
-        'no_guests',
-        'check_in_date',
         'destination',
-        'price',
+        'type',
+        'description',
         'user_id',
         'status',
     ];
