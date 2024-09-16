@@ -8,7 +8,7 @@
   <div class="reservation-form">
     <div class="container">
       <div class="row">
-       
+
         <div class="col-lg-12">
           <form id="reservation-form" name="gs" method="POST" role="search" action="{{ route('traveling.reservation.store', $area->id) }}">
             @csrf
@@ -16,34 +16,29 @@
               <div class="col-lg-12">
                 <h4>Fill in this <em>Form</em> to make <em>Reservation</em></h4>
               </div>
-              <div class="col-lg-12">
-                  <fieldset>
-                      <label for="chooseDestination" class="form-label">User id: </label><em>{{ Auth::user()->id }}</em>
-                      <input type="hidden" value="{{ Auth::user()->id}}" name="user_id" class="Name"required>
 
-                  </fieldset>
-              </div>
               <div class="col-lg-12">
-
                 @if(isset(Auth::user()->id))
                   <fieldset>
-                      <label for="chooseDestination" class="form-label">Your Destination: </label><em>{{ $area->name }}</em>
-                      <input type="hidden" value="{{ $area->name }}" name="destination" class="Name"required>
+                    <input type="hidden" for="user_id" value="{{ Auth::user()->id }}" name="user_id" class="user_id" required>
                   </fieldset>
-                  @endif
-              </div>
-              <div class="col-lg-6">
                   <fieldset>
-                      <label for="Name" class="form-label">Your Name</label>
-                      <input type="text" name="name" class="Name" placeholder="Name" autocomplete="on" required>
+                    <label for="userName" class="form-label">Your Name: </label><em>{{ Auth::user()->name }}</em>
+                    <input type="hidden" value="{{ Auth::user()->name }}" name="name" class="Name" required>
                   </fieldset>
+                  <fieldset>
+                    <label for="chooseDestination" class="form-label">Your Destination: </label><em>{{ $area->name }}</em>
+                    <input type="hidden" value="{{ $area->name }}" name="destination" class="Name" required>
+                  </fieldset>
+                @endif
               </div>
-              <div class="col-lg-6">
+
+              <!--<div class="col-lg-6">
                 <fieldset>
-                    <label for="Number" class="form-label">Your Phone Number</label>
+                    <label for="Number" class="form-label">Your Destination:</label>
                     <input type="text" name="phone_no" class="Number" placeholder="No. phone" autocomplete="on" required>
                 </fieldset>
-              </div>
+              </div>-->
               <div class="col-lg-6">
                   <fieldset>
                       <label for="chooseGuests" class="form-label">Number Of Guests</label>
@@ -65,8 +60,8 @@
                   @endif
                 </fieldset>
               </div>
-              
-              <div class="col-lg-12">                        
+
+              <div class="col-lg-12">
                   <fieldset>
                     @if(isset(Auth::user()->id))
                       <div class="button-group">
@@ -90,8 +85,8 @@
       <div class="row">
         <div class="col-lg-12">
           <h2>Any Inquiries</h2>
-          
-          <div class="main-button"><a href="about.html">Discover More</a></div>
+
+            <div class="main-button"><a href="{{ route('traveling.inquiry', $area->id) }}">Discover More</a></div>
         </div>
       </div>
     </div>
@@ -123,6 +118,6 @@
         </div>
       </div>
     </div>
-  </div>  
+  </div>
 
   @endsection

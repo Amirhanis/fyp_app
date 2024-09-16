@@ -24,7 +24,7 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss'])
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
     <div id="app">
@@ -50,9 +50,11 @@
                             @else
                                 <li><a href="{{route('traveling.report')}}">Report</a></li>
                             @endif
+                            <li><a href="{{route('user.bookings')}}">Reservations</a></li>
+                            <li><a href="{{route('traveling.inquiry')}}">Inquiry</a></li>
                         @endif
 
-                        <li><a href="{{route('user.bookings')}}">Reservations</a></li>
+                        
 
                         @guest
                             @if (Route::has('login'))
@@ -63,6 +65,7 @@
                         <li><a href="{{ route('register') }}">Register</a></li>
 
                             @endif
+                            <li><a href="{{ route('view.login') }}">Admin</a></li>
                         @else
 
                         <li class="nav-item dropdown">
@@ -87,11 +90,11 @@
                                     </form>
                                 </div>
                             </li>
-                            <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                            <!--<li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                 </a></li>
-
+                            -->
                         @endguest
                     </ul>   
                     <a class='menu-trigger'>
@@ -108,17 +111,6 @@
             @yield('content')
         </main>
     </>
-
-    <!--<footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <p>Copyright © 2036. All rights reserved. 
-          <br>Design: <a href="https://templatemo.com" target="_blank" title="free CSS templates">TemplateMo</a> Distribution: <a href="https://themewagon.com target="_blank" >ThemeWagon</a></p>
-        </div>
-      </div>
-    </div>
-  </footer>-->
 
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
   <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>

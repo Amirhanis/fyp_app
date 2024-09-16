@@ -77,9 +77,9 @@ class AdminsController extends Controller
     public function allstates()
     {
 
-        $allstates = State::select()->orderBy('id', 'asc')->get();
+        $allareas = Area::select()->orderBy('id', 'asc')->get();
 
-        return view('admins.allstates', compact('allstates'));
+        return view('admins.allstates', compact('allareas'));
     }
     
     public function createstates()
@@ -91,21 +91,20 @@ class AdminsController extends Controller
     public function storestates(Request $request)
     {
         $destination = 'assets/images';
-        $imageori = $request->image->getClietOriginalName();
+        $imageori = $request->image->getClientOriginalName();
         $request->image->move(public_path($destination), $imageori);
         
-        $storestates = State::create([
+        $storestates = Area::create([
             "name" => $request->name,
-            "population" => $request->email,
-            "territory" => $request->territory,
-            "avg_price" => $request->avg_price,
-            "description" => $request->description,
+            "price" => $request->price,
+            "num_days" => $request->num_days,
+            "country_id" => $request->country_id,
             "image" => $imageori,
-            "continent" => $request->continent,
+            
         ]);
 
         if($storestates){
-            return Redirect::route('all.states')->with(['success' => 'State created successfully']);
+            return Redirect::route('all.states')->with(['success' => 'Homestay created successfully']);
         }
 
     }
@@ -113,9 +112,12 @@ class AdminsController extends Controller
     public function deletestates($id)
     {
 
-        $deletestates = State::find($id);
+        $deletestates = Area::find($id);
+        $deletestates->delete();
 
-        return view('admins.createstates');
+        if($deletestates){
+            return Redirect::route('all.states')->with(['delete' => 'Homestay deleted successfully']);
+        }
     }
 
     public function allBookings()
@@ -143,7 +145,7 @@ class AdminsController extends Controller
 
         if($editbooking){
 
-            return Redirect::route('all.bookings')->with(['update' => 'Booking updated successfully']);
+            return Redirect::route('all.bookings')->with(['delete' => 'Booking updated successfully']);
         }
     }
 

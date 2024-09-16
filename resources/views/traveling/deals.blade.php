@@ -34,10 +34,10 @@
                             <select name="price" class="form-select" aria-label="Default select example" id="choosePrice" onChange="this.form.click()">
                                 <option selected>Price</option>
                                 <option value="100">RM100 or less</option>
-                                <option value="250">RM250 or less</option>
-                                <option value="500">RM500 or less</option>
-                                <option value="1000">RM1,000 or less</option>
-                                <option value="2500+">RM2,500 or less</option>
+                                <option value="200">RM200 or less</option>
+                                <option value="300">RM300 or less</option>
+                                <option value="400">RM400 or less</option>
+                                <option value="600">RM600 or less</option>
                             </select>
                         </fieldset>
                     </div>
