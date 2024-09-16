@@ -85,7 +85,6 @@
       <div class="row">
         <div class="col-lg-12">
           <h2>Any Inquiries</h2>
-
             <div class="main-button"><a href="{{ route('traveling.inquiry', $area->id) }}">Discover More</a></div>
         </div>
       </div>
