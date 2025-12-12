@@ -1,6 +1,26 @@
 ![image](https://github.com/user-attachments/assets/cb5a5e0c-48eb-435d-a925-0b3420b5d571)
 
+# Centralized Homestay Management System (CHMS)
+
 Main dashboard page for my final year project Centralized Homestay Management System
+
+## Production Domain
+**www.chms.com**
+
+## Deployment
+
+For detailed deployment instructions to production with the domain www.chms.com, please refer to [DEPLOYMENT.md](DEPLOYMENT.md).
+
+### Quick Deployment Steps:
+1. Clone the repository to your server
+2. Install dependencies (Composer, npm)
+3. Configure environment variables in `.env`
+4. Set up database and run migrations
+5. Configure web server (Apache or Nginx)
+6. Set up SSL certificate
+7. Optimize for production
+
+See the full deployment guide for detailed instructions.
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
