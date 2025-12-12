@@ -86,7 +86,7 @@ mysql -u root -p
 In MySQL:
 ```sql
 CREATE DATABASE fyp_app CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-CREATE USER 'fyp_user'@'localhost' IDENTIFIED BY 'secure_password';
+CREATE USER 'fyp_user'@'localhost' IDENTIFIED BY 'YOUR_STRONG_PASSWORD_HERE';
 GRANT ALL PRIVILEGES ON fyp_app.* TO 'fyp_user'@'localhost';
 FLUSH PRIVILEGES;
 EXIT;

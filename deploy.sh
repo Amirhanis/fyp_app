@@ -2,6 +2,7 @@
 
 # CHMS Deployment Script for www.chms.com
 # This script automates the deployment process
+# Usage: sudo ./deploy.sh [--app-dir /path/to/app] [--auto-migrate]
 
 set -e  # Exit on any error
 
@@ -17,9 +18,32 @@ if [ "$EUID" -ne 0 ]; then
     exit 1
 fi
 
-# Define variables
+# Parse command line arguments
 APP_DIR="/var/www/html/fyp_app"
+AUTO_MIGRATE=false
+
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --app-dir)
+            APP_DIR="$2"
+            shift 2
+            ;;
+        --auto-migrate)
+            AUTO_MIGRATE=true
+            shift
+            ;;
+        *)
+            echo "Unknown option: $1"
+            echo "Usage: sudo ./deploy.sh [--app-dir /path/to/app] [--auto-migrate]"
+            exit 1
+            ;;
+    esac
+done
+
 WEB_USER="www-data"
+
+echo "Application directory: $APP_DIR"
+echo ""
 
 echo "Step 1: Installing dependencies..."
 cd "$APP_DIR"
@@ -53,10 +77,14 @@ chmod -R 775 "$APP_DIR/bootstrap/cache"
 
 echo ""
 echo "Step 6: Running database migrations..."
-read -p "Do you want to run database migrations? (y/n) " -n 1 -r
-echo
-if [[ $REPLY =~ ^[Yy]$ ]]; then
+if [ "$AUTO_MIGRATE" = true ]; then
     php artisan migrate --force
+else
+    read -p "Do you want to run database migrations? (y/n) " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        php artisan migrate --force
+    fi
 fi
 
 echo ""
